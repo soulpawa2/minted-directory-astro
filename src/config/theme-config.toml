@@ -1,0 +1,108 @@
+[general]
+title = "Best Meditation Apps"
+logo = ""
+iconLogo = "tabler:yin-yang-filled"
+
+[general.seo]
+name = "Nuxt Starters"
+description = "Find the best nuxt starter kits."
+url = "https://nuxtstarters.com"
+
+[directory.search]
+placeholder = "Search among {0} tools"
+showCount = true
+icon = "tabler:bow"
+
+[directory.search.tags]
+display = "select"   # options: none,select,show-all
+intersection = false
+
+[directory.grid]
+list = false
+
+[directory.grid.emptyState]
+text = "Seems that this entry is missing from the archives."
+type = "button"                                              # options: button, simple, link
+icon = "tabler:exclamation-mark"
+
+[directory.grid.card]
+image = true
+border = "shadow" # options: dashed, shadow, outline
+
+[directory.grid.submit]
+show = true
+first = false
+title = "Submit a template"
+description = "Submit a template to show off a good project to other people."
+hideable = true
+
+[directory.featured]
+showOnAllPages = true
+showOnSide = true
+icon = "tabler:star"
+labelForCard = "Featured ✨"
+
+[[directory.tags]]
+name = "SAAS"
+color = "blue"
+
+[[directory.tags]]
+name = "dashboard"
+color = "green"
+
+[[directory.tags]]
+name = "landing-page"
+
+[[directory.tags]]
+name = "toolbox"
+
+[[directory.tags]]
+name = "agency"
+
+[[directory.tags]]
+name = "markdown-based"
+
+[[directory.tags]]
+name = "basics"
+color = "indigo"
+
+[header.banner]
+show = true
+text = "Create your own directory website in minutes."
+link = "https://minteddirectory.com"
+brandText = "MintedDirectory"
+
+[header.navbar]
+colorModeSelector = true
+links = ["Home", "Blog", "Advertise"]
+
+[header.actionButton]
+text = "Submit a starter"
+href = "/submit"
+
+[footer]
+description = "Best directory for my niche."
+
+[footer.socials.github]
+link = ""
+icon = "tabler:brand-github"
+
+[footer.socials.facebook]
+link = ""
+icon = "tabler:brand-facebook"
+
+[footer.socials.instagram]
+link = ""
+icon = "tabler:brand-instagram"
+
+[footer.socials.x]
+link = "https://x.com/mark_bruderer"
+icon = "tabler:brand-twitter"
+
+[footer.socials.youtube]
+link = "https://www.youtube.com/@mark_hacks"
+icon = "tabler:brand-youtube"
+
+[ui.icons]
+dark = "tabler:moon"
+light = "tabler:sun"
