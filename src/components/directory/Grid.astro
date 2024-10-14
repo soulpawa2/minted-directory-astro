@@ -1,14 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import DirectoryCard from "./Card.astro";
-
-const config = (await globalThis.themeConfig).directory;
+import PureGrid from "./PureGrid.astro";
 
 const allListings = await getCollection("directory");
 ---
 
-<div
-  class={`not-prose grid grid-cols-1 gap-4 ${config?.list ? "" : "lg:grid-cols-4"}`}
->
-  {allListings.map((e) => <DirectoryCard item={e} />)}
-</div>
+<PureGrid listings={allListings} />

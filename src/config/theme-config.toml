@@ -42,25 +42,21 @@ showOnSide = true
 icon = "tabler:star"
 labelForCard = "Featured ✨"
 
+[directory.tagPages]
+title = "{0} Apps"
+
 [[directory.tags]]
-name = "freemium"
+key = "freemium"
+name = "Freemium"
 color = "blue"
 
 [[directory.tags]]
-name = "guided_meditations"
+key = "guided_meditations"
+name = "Guided Meditations"
 color = "green"
 
 [[directory.tags]]
-name = "timer"
-
-[[directory.tags]]
-name = "toolbox"
-
-[[directory.tags]]
-name = "agency"
-
-[[directory.tags]]
-name = "markdown-based"
+key = "timer"
 
 [[directory.tags]]
 name = "basics"

@@ -1,10 +1,38 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import AppShell from "../../components/app/AppShell.astro";
+import type { ThemeConfig } from "../../types/ThemeConfig";
+import PureGrid from "../../components/directory/PureGrid.astro";
+import { getCollection } from "astro:content";
+import formatString from "../../util/formatString";
+
+export async function getStaticPaths() {
+  const config: ThemeConfig = await themeConfig;
+
+  return config.directory.tags.map((e) => ({
+    params: { slug: e.name },
+    props: { color: e.color, title: e.name },
+  }));
+}
+
+const { color, title } = Astro.props;
+
+const config: ThemeConfig = await themeConfig;
+
+const allListings = await getCollection("directory");
+
+const tagListings: any[] = allListings.filter(
+  (listing: any) => listing?.data?.tags && listing.data.tags.includes(title)
+);
 ---
 
 <Layout>
   <AppShell>
-    <div class="max-w-3xl xl:max-w-6xl px-5 py-10 mx-auto">hello world</div>
+    <div class="max-w-3xl xl:max-w-6xl px-5 py-10 mx-auto">
+      <h1 class="text-gray-600 font-semibold text-4xl mb-12">
+        {formatString(config.directory.tagPages.title, title).toUpperCase()}
+      </h1>
+      <PureGrid listings={tagListings} />
+    </div>
   </AppShell>
 </Layout>

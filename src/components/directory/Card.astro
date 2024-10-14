@@ -10,7 +10,7 @@ const { item } = Astro.props;
 ---
 
 { cardConfig.type !== 'bullet' ?
-<a href={item.slug}
+<a href={`/${item.slug}`}
   class="border col-span-1 border-gray-200 dark:border-gray-500 hover:border-primary-400 hover:border-solid dark:hover:border-primary-300 rounded relative group transition-all duration-300"
   class={cardConfig?.type === 'shadow' ? 'shadow-sm' : cardConfig?.type === 'dashed' ? 'border-dashed' : ''}>
   { item.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
@@ -33,7 +33,7 @@ const { item } = Astro.props;
     </div>
   </div>
 </a> :
-<a href={item._path}>
+<a href={`/${item.slug}`}>
   <div class="inline-flex gap-2 items-center">
     <img class="h-5 w-5" src={item.data.card_image ?? '/logo.png'} />
     <span class="font-semibold dark:text-gray-50">{ item.data.title }</span> -

@@ -45,9 +45,13 @@ export interface ThemeConfig {
       labelForCard: string;
     };
     tags: Array<{
+      key?: string;
       name: string;
       color?: string; // color is optional
     }>;
+    tagPages: {
+      title: string;
+    };
   };
   header: {
     banner: {
