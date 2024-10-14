@@ -4,6 +4,7 @@ title: Insight Timer
 description: Insight Timer, a meditation app for all levels
 tags:
   - timer
+card_image: ../../images/insight.png
 ---
 
 # Insight Timer
