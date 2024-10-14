@@ -1,9 +1,11 @@
 ---
+layout: '../../layouts/Listing.astro'
 title: Calm App
 description: the calm app
 tags:
   - freemium
   - SAAS
+card_image: ../../images/calm.png
 ---
 
 # Calm: The Ultimate Mindfulness and Meditation App

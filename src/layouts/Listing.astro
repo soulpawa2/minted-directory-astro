@@ -6,7 +6,7 @@ const siteTitle = (await globalThis.themeConfig).general.title;
 const title = frontmatter?.title || siteTitle;
 ---
 
-<div class="grid grid-cols-10">
+<div class="grid grid-cols-1 md:grid-cols-10">
   <div class="col-span-6">
     <slot />
   </div>

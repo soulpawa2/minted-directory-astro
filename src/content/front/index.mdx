@@ -1,12 +1,14 @@
 ---
 layout: '../../layouts/Layout.astro'
+card_image: 'calm.png'
 ---
 
 import Grid from '../../components/directory/Grid.astro'
+import SimpleLeftHero from '../../components/hero/SimpleLeftHero.astro'
 
-
-# Welcome to Best Meditation Apps
-
-A list of the best meditation and mindfullness apps. Find out about the most famous meditation apps like Calm and Headspace and other apps like them.
+<SimpleLeftHero image="meditation.jpg">
+<span slot="heading">Meditation Apps</span>
+<span slot="description">A list of the best meditation and mindfullness apps. Find out about the most famous meditation apps like Calm and Headspace and other apps like them.</span>
+</SimpleLeftHero>
 
 <Grid />

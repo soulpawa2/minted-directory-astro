@@ -68,9 +68,9 @@ color = "indigo"
 
 [header.banner]
 show = true
-text = "Create your own directory website in minutes."
-link = "https://minteddirectory.com"
-brandText = "MintedDirectory"
+text = "Follow mark_bruderer on twitter."
+link = "https://x.com/intent/follow?screen_name=mark_bruderer"
+brandText = "BestMeditationApps"
 
 [header.navbar]
 colorModeSelector = true
