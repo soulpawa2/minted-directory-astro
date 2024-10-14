@@ -58,7 +58,7 @@ export interface ThemeConfig {
     };
     navbar: {
       colorModeSelector: boolean;
-      links: string[];
+      links: [{ href: string; name: string; target?: string }];
     };
     actionButton: {
       text: string;

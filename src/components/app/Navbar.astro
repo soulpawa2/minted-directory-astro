@@ -1,9 +1,9 @@
 ---
-import useAppConfig from "../../util/useAppConfig";
+import type { ThemeConfig } from "../../types/ThemeConfig";
 import ColorSelector from "./header/ColorSelector.astro";
 import Logo from "./Logo.astro";
 
-const config = (await useAppConfig()).header;
+const config: ThemeConfig = await themeConfig;
 ---
 
 <nav
@@ -22,10 +22,10 @@ const config = (await useAppConfig()).header;
           class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-700 md:dark:bg-gray-700 dark:border-gray-700"
         >
           {
-            config.navbar.links.map((nav) => (
-              <li v-for="nav in config.navbar?.links">
+            config.header.navbar.links.map((nav) => (
+              <li>
                 <a
-                  href={nav.to}
+                  href={nav.href}
                   target={nav.target || "_self"}
                   class="font-medium block py-2 px-3 text-white bg-primary-700 rounded md:bg-transparent md:text-gray-700 md:p-0 md:dark:text-gray-300"
                   aria-current="page"
@@ -46,10 +46,10 @@ const config = (await useAppConfig()).header;
         v-if="config?.navbar?.colorModeSelector"
       />
       <a
-        :to="config?.actionButton?.href"
+        href={config?.header.actionButton?.href}
         class="hidden md:block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
       >
-        {config?.actionButton?.text}
+        {config?.header.actionButton?.text}
       </a>
       <button
         data-collapse-toggle="navbar-sticky"

@@ -74,7 +74,11 @@ brandText = "MintedDirectory"
 
 [header.navbar]
 colorModeSelector = true
-links = ["Home", "Blog", "Advertise"]
+
+[[header.navbar.links]]
+name = "home"
+href = "test"
+target = "_self"
 
 [header.actionButton]
 text = "Submit a starter"

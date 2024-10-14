@@ -1,11 +1,7 @@
 ---
 const config = (await globalThis.themeConfig).directory.tags;
 
-console.log(config);
-
 const { tag } = Astro.props;
-
-console.log(tag);
 
 const configTag = config?.find((element: any) => element.name === tag);
 

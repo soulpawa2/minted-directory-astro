@@ -2,8 +2,9 @@
 import { array } from "astro:schema";
 import AppLogo from "./Logo.astro";
 import { Icon } from "astro-icon/components";
+import type { ThemeConfig } from "../../types/ThemeConfig";
 
-const config = await globalThis.themeConfig;
+const config: ThemeConfig = await themeConfig;
 
 const socials = config.footer.socials
   ? Object.values(config.footer.socials).filter((i) => i?.icon && i?.link)
@@ -20,10 +21,10 @@ const navigation = [
   {
     title: "Categories",
     links: config.directory.tags
-      ?.filter((e) => e && (e as Tag).name)
+      ?.filter((e) => e && e.name)
       .map((e) => ({
-        title: (e as Tag).name,
-        link: `/tags/${(e as Tag).name}`,
+        title: e.name,
+        link: `/tags/${e.name}`,
       }))
       .slice(0, 4),
   },
