@@ -1,4 +1,5 @@
 ---
+import Posthog from "../analytics/posthog.astro";
 import Footer from "./Footer.astro";
 import Navbar from "./Navbar.astro";
 import Banner from "./header/Banner.vue";
@@ -9,4 +10,5 @@ import Banner from "./header/Banner.vue";
   <Navbar />
   <slot />
   <Footer />
+  <Posthog />
 </div>

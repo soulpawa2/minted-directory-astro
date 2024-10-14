@@ -5,7 +5,7 @@ description: Zalig Zen
 tags:
   - freemium
   - dutch
-card_image: ../../images/medito.png
+card_image: ../../images/zalig.png
 ---
 
 # Zalig Zen
