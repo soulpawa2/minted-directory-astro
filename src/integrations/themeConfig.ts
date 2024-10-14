@@ -2,7 +2,7 @@ import type { AstroIntegration } from "astro";
 import { loadConfig } from "../util/loadConfig";
 
 export const lifecycleLogs = () => {
-  const hooks = [`astro:config:setup`] as const;
+  const hooks = [`astro:config:setup`, "astro:build:setup"] as const;
 
   // base integration structure. "hooks" will be updated
   let integration: AstroIntegration = {
