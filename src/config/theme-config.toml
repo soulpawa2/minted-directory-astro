@@ -1,5 +1,5 @@
 [general]
-title = "Best Meditation Apps"
+title = "Meditation Apps"
 logo = ""
 iconLogo = "tabler:yin-yang-filled"
 
@@ -43,15 +43,15 @@ icon = "tabler:star"
 labelForCard = "Featured ✨"
 
 [[directory.tags]]
-name = "SAAS"
+name = "freemium"
 color = "blue"
 
 [[directory.tags]]
-name = "dashboard"
+name = "guided_meditations"
 color = "green"
 
 [[directory.tags]]
-name = "landing-page"
+name = "timer"
 
 [[directory.tags]]
 name = "toolbox"

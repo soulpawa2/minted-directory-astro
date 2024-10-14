@@ -3,6 +3,8 @@ layout: ../../layouts/Listing.astro
 title: Headspace
 description: Headspace is a popular mindfulness and meditation app designed to help users reduce stress, improve focus, and sleep better through guided meditation sessions.
 card_image: ../../images/headspace.png
+tags:
+  - guided_meditations
 ---
 
 # Headspace

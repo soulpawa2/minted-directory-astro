@@ -2,6 +2,8 @@
 layout: '../../layouts/Listing.astro'
 title: Insight Timer
 description: Insight Timer, a meditation app for all levels
+tags:
+  - timer
 ---
 
 # Insight Timer

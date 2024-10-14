@@ -1,10 +1,10 @@
 ---
 layout: '../../layouts/Listing.astro'
 title: Calm App
-description: the calm app
+description: Calm is a leading app designed to improve mental health through meditation, sleep aids, and relaxation techniques.
 tags:
   - freemium
-  - SAAS
+  - guided_meditations
 card_image: ../../images/calm.png
 ---
 
