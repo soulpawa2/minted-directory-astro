@@ -58,10 +58,6 @@ color = "green"
 [[directory.tags]]
 key = "timer"
 
-[[directory.tags]]
-name = "basics"
-color = "indigo"
-
 [header.banner]
 show = true
 text = "Follow mark_bruderer on twitter."

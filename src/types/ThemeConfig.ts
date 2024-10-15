@@ -1,3 +1,5 @@
+import type Tag from "./Tag";
+
 export interface ThemeConfig {
   general: {
     title: string;
@@ -44,11 +46,7 @@ export interface ThemeConfig {
       icon: string;
       labelForCard: string;
     };
-    tags: Array<{
-      key?: string;
-      name: string;
-      color?: string; // color is optional
-    }>;
+    tags: Array<Tag>;
     tagPages: {
       title: string;
     };

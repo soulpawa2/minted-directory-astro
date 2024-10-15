@@ -5,14 +5,19 @@ import type { ThemeConfig } from "../../types/ThemeConfig";
 import PureGrid from "../../components/directory/PureGrid.astro";
 import { getCollection } from "astro:content";
 import formatString from "../../util/formatString";
+import type Tag from "../../types/Tag";
 
 export async function getStaticPaths() {
-  const config: ThemeConfig = await themeConfig;
+  const tags: Array<Tag> = (await themeConfig).directory.tags;
 
-  return config.directory.tags.map((e) => ({
-    params: { slug: e.name },
+  const result = tags.map((e) => ({
+    params: { slug: e.key },
     props: { color: e.color, title: e.name },
   }));
+
+  console.log(result);
+
+  return result;
 }
 
 const { color, title } = Astro.props;
