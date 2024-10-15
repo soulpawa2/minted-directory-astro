@@ -68,9 +68,9 @@ brandText = "BestMeditationApps"
 colorModeSelector = true
 
 [[header.navbar.links]]
-name = "home"
-href = "test"
-target = "_self"
+name = "Analytics"
+href = "https://us.posthog.com/shared/vHlGCcSqPjGH4r_QijaXSETtmN9J-g"
+target = "_blank"
 
 [header.actionButton]
 text = "Submit a starter"
