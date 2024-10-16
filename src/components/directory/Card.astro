@@ -1,7 +1,7 @@
 ---
 import useAppConfig from "../../util/useAppConfig";
 import Image from "astro/components/Image.astro";
-import UiTag from "../ui/Tag.astro";
+import UiTag from "../ui/tags/Tag.astro";
 import DirectoryFeaturedTag from "./FeaturedTag.astro";
 
 const cardConfig = await globalThis.themeConfig;
@@ -11,7 +11,7 @@ const { item } = Astro.props;
 
 { cardConfig.type !== 'bullet' ?
 <a href={`/${item.slug}`}
-  class="border col-span-1 border-gray-200 dark:border-gray-500 hover:border-primary-400 hover:border-solid dark:hover:border-primary-300 rounded relative group transition-all duration-300"
+  class="border listing col-span-1 border-gray-200 dark:border-gray-500 hover:border-primary-400 hover:border-solid dark:hover:border-primary-300 rounded relative group transition-all duration-300"
   class={cardConfig?.type === 'shadow' ? 'shadow-sm' : cardConfig?.type === 'dashed' ? 'border-dashed' : ''}>
   { item.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { item.data.card_image ? <Image class="w-full h-48 rounded-t object-cover"
@@ -20,10 +20,10 @@ const { item } = Astro.props;
     {item.data.title }
   </div> }
   <div class="p-6">
-    <h3 class="m-0 text-lg font-semibold dark:text-gray-50">
+    <h3 class="m-0 text-lg font-semibold dark:text-gray-50 card-title">
       { item.data.title }
     </h3>
-    <p class="line-clamp-4 mt-2">
+    <p class="line-clamp-4 mt-2 card-description">
       {item.data.description }
     </p>
     <div class="p-0 mt-2 flex gap-2">
@@ -33,7 +33,7 @@ const { item } = Astro.props;
     </div>
   </div>
 </a> :
-<a href={`/${item.slug}`}>
+<a href={`/${item.slug}`} class="listing">
   <div class="inline-flex gap-2 items-center">
     <img class="h-5 w-5" src={item.data.card_image ?? '/logo.png'} />
     <span class="font-semibold dark:text-gray-50">{ item.data.title }</span> -
