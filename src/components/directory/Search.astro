@@ -72,8 +72,25 @@ async function getSearchPlaceholder() {
 <script>
   import { search } from "../../store.js";
 
+  const searchInput = document.getElementById("search");
+
   // Add an event listener to the button
-  document?.getElementById("search")?.addEventListener("input", (event) => {
+  searchInput.addEventListener("input", (event) => {
     search.set(event?.target?.value);
   });
+
+  const keyListener = function (e: KeyboardEvent) {
+    console.log("listening");
+    if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+
+    if (e.key === "Escape") {
+      e.preventDefault();
+      searchInput?.blur();
+    }
+  };
+
+  document.body.addEventListener("keydown", keyListener);
 </script>

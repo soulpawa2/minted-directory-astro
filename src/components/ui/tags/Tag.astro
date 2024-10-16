@@ -1,4 +1,6 @@
 ---
+import type Tag from "../../../types/Tag";
+
 const config = (await globalThis.themeConfig).directory.tags;
 
 const { tag } = Astro.props;
@@ -6,10 +8,14 @@ const { tag } = Astro.props;
 const configTag = config?.find((element: any) => element.name === tag);
 
 const tagClass = configTag?.color ? `${configTag.color}-tag` : "gray-tag";
+
+function getTagName(tagKey: string): string {
+  return config.find((e: Tag) => e.key === tagKey);
+}
 ---
 
 <span class={tagClass}>
-  {tag}
+  {getTagName(tag)?.name}
 </span>
 
 <style scoped lang="postcss">
