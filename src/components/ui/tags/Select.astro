@@ -6,7 +6,8 @@ const config = await themeConfig;
 const availableTags = config.directory.tags;
 ---
 
-<div class="flex m-0 gap-4 mt-4 py-2">
+<div class="flex m-0 mt-4 py-2">
+  <div id="tag-list" class="flex gap-2"></div>
   <!-- {
     currentTags.((myTag: Tag) => (
       <div class="relative group border-2 shadow-sm font-semibold text-blue-500 bg-blue-600/10 rounded-lg px-1.5 py-1 inline-flex items-center justify-center">
@@ -22,12 +23,12 @@ const availableTags = config.directory.tags;
   } -->
   <select
     id="tag-select"
-    class="border border-dashed border-gray-300 rounded-lg font-medium text-gray-500 dark:border-gray-500 dark:bg-gray-700 dark:text-gray-400 focus:ring-primary-500 focus:ring-2 focus:border-none ring-offset-4"
+    class="border border-dashed h-10 border-gray-300 rounded-lg font-medium text-gray-500 dark:border-gray-500 dark:bg-gray-700 dark:text-gray-400 focus:ring-primary-500 focus:ring-2 focus:border-none ring-offset-4"
   >
     <option value="" disabled selected> Select a tag </option>
     {
-      availableTags.map((tag) => (
-        <option v-for="tag in availableTags" key={tag.name} value={tag.name}>
+      availableTags.map((tag: Tag) => (
+        <option key={tag.name} value={tag.key}>
           {tag.name}
         </option>
       ))
@@ -36,11 +37,93 @@ const availableTags = config.directory.tags;
 </div>
 
 <script>
-  document
-    .getElementById("tag-remove")
-    .addEventListener("click", (event) => {});
+  import { tags } from "../../../store.js";
 
-  document
-    .getElementById("tag-select")
-    .addEventListener("click", (event) => {});
+  tags.subscribe(() => {
+    const tagList = document.getElementById("tag-list");
+
+    tagList!.innerHTML = "";
+
+    // Loop through the tags and append each one to the tagList
+    for (const tag of tags.get()) {
+      // Create a wrapper div element
+      const tagElement = document.createElement("div");
+
+      const tagSpan = document.createElement("span");
+      tagSpan.setAttribute("data-value", tag.key);
+
+      // Set its classes and inner HTML content
+      tagElement.classList.add(
+        "relative",
+        "group",
+        "border-2",
+        "shadow-sm",
+        "font-semibold",
+        "text-blue-500",
+        "bg-blue-600/10",
+        "rounded-lg",
+        "px-1.5",
+        "py-1",
+        "inline-flex",
+        "items-center",
+        "justify-center"
+      );
+
+      tagSpan.classList.add(
+        "absolute",
+        "text-gray-500",
+        "opacity-0",
+        "transition-all",
+        "group-hover:opacity-100",
+        "hover:bg-gray-100",
+        "flex",
+        "items-center",
+        "justify-center",
+        "-top-4",
+        "left-0",
+        "bg-white",
+        "rounded-full",
+        "h-6",
+        "w-6",
+        "border",
+        "dark:bg-gray-700",
+        "dark:border-gray-600",
+        "dark:hover:bg-gray-800"
+      );
+
+      tagSpan.innerHTML = "x";
+      tagElement.appendChild(tagSpan);
+
+      tagSpan.addEventListener("click", (event) => {
+        const tag_list = tags.get();
+        const clickedElement = event.target;
+
+        const dataValue = clickedElement.getAttribute("data-value");
+
+        const index = tag_list.indexOf(dataValue);
+        if (!index) {
+          return;
+        }
+        tag_list.splice(index);
+        tags.set([...tag_list]);
+      });
+      const text = document.createElement("span");
+      text.innerHTML = tag;
+      tagElement.appendChild(text);
+
+      // Append the newly created tag element to the parent container
+      tagList?.appendChild(tagElement);
+    }
+  });
+
+  // document.getElementById("tag-remove").addEventListener("click", (event) => {
+  //   console.log("remove");
+  // });
+
+  document.getElementById("tag-select").addEventListener("change", (event) => {
+    console.log("add " + event.target.value);
+    if (!tags.get().includes(event.target.value)) {
+      tags.set([...tags.get(), event.target.value]);
+    }
+  });
 </script>
