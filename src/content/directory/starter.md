@@ -1,14 +1,13 @@
 ---
 layout: '../../layouts/Listing.astro'
-title: Calm App
-description: Calm is a leading app designed to improve mental health through meditation, sleep aids, and relaxation techniques.
+title: Example Listing
+description: This is an example listing to get you started.
 tags:
   - freemium
-  - guided_meditations
 card_image: ../../images/calm.png
 ---
 
-# Calm: The Ultimate Mindfulness and Meditation App
+# Example Listing
 
 Calm is a leading app designed to improve mental health through meditation, sleep aids, and relaxation techniques. Known for its serene interface and diverse range of content, Calm helps users manage stress, anxiety, and sleep problems. Here's a breakdown of its features, meditation style, pricing, and more.
 
