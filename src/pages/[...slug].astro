@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import AppShell from "../components/app/AppShell.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Prose from "../components/app/Prose.astro";
 
 // Fetch all listings and pages
@@ -35,12 +34,6 @@ export async function getStaticPaths() {
 }
 ---
 
-<Layout>
-  <AppShell>
-    <div class="max-w-3xl xl:max-w-6xl px-5 py-10 mx-auto">
-      <Prose>
-        <Content />
-      </Prose>
-    </div>
-  </AppShell>
-</Layout>
+<BaseLayout>
+  <Content />
+</BaseLayout>

@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import AppShell from "../../components/app/AppShell.astro";
 import type { ThemeConfig } from "../../types/ThemeConfig";
 import PureGrid from "../../components/directory/PureGrid.astro";
@@ -36,13 +36,11 @@ function toTitleCase(str) {
 }
 ---
 
-<Layout>
-  <AppShell>
-    <div class="max-w-3xl xl:max-w-6xl px-5 py-10 mx-auto">
-      <h1 class="text-gray-600 font-semibold text-4xl mb-12">
-        {toTitleCase(formatString(config.directory.tagPages.title, title))}
-      </h1>
-      <PureGrid listings={tagListings} />
-    </div>
-  </AppShell>
-</Layout>
+<BaseLayout>
+  <div class="max-w-3xl xl:max-w-6xl px-5 py-10 mx-auto">
+    <h1 class="text-gray-600 font-semibold text-4xl mb-12">
+      {toTitleCase(formatString(config.directory.tagPages.title, title))}
+    </h1>
+    <PureGrid listings={tagListings} />
+  </div>
+</BaseLayout>
