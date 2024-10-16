@@ -15,8 +15,6 @@ export async function getStaticPaths() {
     props: { color: e.color, title: e.name },
   }));
 
-  console.log(result);
-
   return result;
 }
 
@@ -29,13 +27,20 @@ const allListings = await getCollection("directory");
 const tagListings: any[] = allListings.filter(
   (listing: any) => listing?.data?.tags && listing.data.tags.includes(title)
 );
+
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+  );
+}
 ---
 
 <Layout>
   <AppShell>
     <div class="max-w-3xl xl:max-w-6xl px-5 py-10 mx-auto">
       <h1 class="text-gray-600 font-semibold text-4xl mb-12">
-        {formatString(config.directory.tagPages.title, title).toUpperCase()}
+        {toTitleCase(formatString(config.directory.tagPages.title, title))}
       </h1>
       <PureGrid listings={tagListings} />
     </div>
