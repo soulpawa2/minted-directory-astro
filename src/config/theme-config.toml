@@ -1,7 +1,7 @@
 [general]
-title = "Meditation Apps"
+title = "Minted Directory"
 logo = ""
-iconLogo = "tabler:yin-yang-filled"
+iconLogo = "tabler:leaf"
 
 [general.seo]
 name = "Nuxt Starters"

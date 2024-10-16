@@ -4,7 +4,6 @@ title: Example Listing
 description: This is an example listing to get you started.
 tags:
   - freemium
-card_image: ../../images/calm.png
 ---
 
 # Example Listing
