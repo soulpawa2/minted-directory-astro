@@ -6,14 +6,14 @@
 <br/>
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/952a6903-841b-4102-a34b-d6f297079e03" width="85%" alt="Minted Directory Screenshot" />
+  <img src="https://github.com/user-attachments/assets/febde860-00be-408b-8a13-41953f7178e1" alt="Minted Directory Screenshot" />
 </div>
 
 <br/>
 
-### Features:
+## Features:
 + 🖌️ Add Listings with markdown.
-+ 🔋 Batteries included for SEO.
++ 🔋 SEO optimizations and pSEO out of the box
 + 💻 Pre-built components for directories.
 + 💅 Customizable style.
 + 🌙 Dark/Light mode
@@ -32,7 +32,7 @@ git clone git@github.com:youraccount/projectname.git my-directory
 Or use the github cli to create a repository based on the template and clone in one command:
 
 ```sh
-gh repo create my-directory --template masterkram/minted-directory --private --clone
+gh repo create my-directory --template masterkram/minted-directory-astro --private --clone
 ```
 
 Go to the cloned folder:
@@ -56,21 +56,20 @@ Congrats :tada:
 
 You can start customizing and building your directory.
 
-### Customization
+## Customization
 
 To customize the directory style:
 + Change the `primary`, `secondary` color and `fontFamily` in `tailwind.config.ts`
-+ Customize the `app.config.ts`
++ Customize the `src/config/theme-config.toml`
 
-Read about the possible changes to the app config [here](https://minteddirectory/docs/settings).
 
 ### Adding Content
 
 Add listings by adding markdown files to `/src/content/directory`
 
-### Deployment
+## Deployment
 
-Deploy as a pre-rendered, static site for best SEO performance:
+Deploy as a static site for best SEO performance:
 
 ```bash
 pnpm run build
