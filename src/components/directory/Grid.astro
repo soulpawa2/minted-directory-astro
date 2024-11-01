@@ -17,8 +17,9 @@ const allListings = await getCollection("directory");
     for (const element of listingsArray) {
       // Example condition to match search term (you can customize this)
       const content =
-        element.querySelector(".card-title")?.textContent +
-        element.querySelector(".card-description")?.textContent;
+        element?.querySelector(".card-title")?.textContent ||
+        "" + element?.querySelector(".card-description")?.textContent ||
+        "";
 
       // Add or remove the 'hidden' class based on the search term match
       if (content?.toLowerCase().includes(searchTerm.toLowerCase())) {

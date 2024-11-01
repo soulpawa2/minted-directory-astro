@@ -9,7 +9,7 @@ const configTag = config?.find((element: any) => element.name === tag);
 
 const tagClass = configTag?.color ? `${configTag.color}-tag` : "gray-tag";
 
-function getTagName(tagKey: string): string {
+function getTagName(tagKey: string): Tag {
   return config.find((e: Tag) => e.key === tagKey);
 }
 ---

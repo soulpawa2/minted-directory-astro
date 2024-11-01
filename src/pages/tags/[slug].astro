@@ -12,23 +12,29 @@ export async function getStaticPaths() {
 
   const result = tags.map((e) => ({
     params: { slug: e.key },
-    props: { color: e.color, title: e.name },
+    props: { color: e.color, title: e.key },
   }));
 
   return result;
 }
 
-const { color, title } = Astro.props;
+const { title } = Astro.props;
 
 const config: ThemeConfig = await themeConfig;
 
 const allListings = await getCollection("directory");
 
-const tagListings: any[] = allListings.filter(
-  (listing: any) => listing?.data?.tags && listing.data.tags.includes(title)
-);
+const calculatedTitle = config.directory.tags.find(
+  (e) => title && e.key === title
+)?.name;
 
-function toTitleCase(str) {
+const tagListings: any[] = allListings.filter((listing: any) => {
+  return (
+    listing?.data?.tags instanceof Array && listing.data.tags.includes(title)
+  );
+});
+
+function toTitleCase(str: string) {
   return str.replace(
     /\w\S*/g,
     (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
@@ -39,7 +45,11 @@ function toTitleCase(str) {
 <BaseLayout>
   <div class="max-w-3xl xl:max-w-6xl px-5 py-10 mx-auto">
     <h1 class="text-gray-600 font-semibold text-4xl mb-12">
-      {toTitleCase(formatString(config.directory.tagPages.title, title))}
+      {
+        toTitleCase(
+          formatString(config.directory.tagPages.title, calculatedTitle)
+        )
+      }
     </h1>
     <PureGrid listings={tagListings} />
   </div>

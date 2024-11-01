@@ -10,6 +10,9 @@ const directoryCollection = defineCollection({
       description: z.string().optional(),
       tags: z.array(z.string()).optional(),
       card_image: image().optional(),
+      links: z
+        .array(z.object({ name: z.string(), link: z.string() }))
+        .optional(),
     }),
 });
 

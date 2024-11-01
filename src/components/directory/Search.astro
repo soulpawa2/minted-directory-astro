@@ -75,15 +75,16 @@ async function getSearchPlaceholder() {
   const searchInput = document.getElementById("search");
 
   // Add an event listener to the button
-  searchInput.addEventListener("input", (event) => {
-    search.set(event?.target?.value);
+  searchInput?.addEventListener("input", (event: Event) => {
+    const target = event.target as HTMLSelectElement;
+    search.set(target.value);
   });
 
   const keyListener = function (e: KeyboardEvent) {
     console.log("listening");
     if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
-      searchInput.focus();
+      searchInput?.focus();
     }
 
     if (e.key === "Escape") {

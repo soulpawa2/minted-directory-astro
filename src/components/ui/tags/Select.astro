@@ -1,6 +1,5 @@
 ---
 import type Tag from "../../../types/Tag";
-import { Icon } from "astro-icon/components";
 const config = await themeConfig;
 
 const availableTags = config.directory.tags;
@@ -28,9 +27,7 @@ const availableTags = config.directory.tags;
     <option value="" disabled selected> Select a tag </option>
     {
       availableTags.map((tag: Tag) => (
-        <option key={tag.name} value={tag.key}>
-          {tag.name}
-        </option>
+        <option value={tag.key}>{tag.name}</option>
       ))
     }
   </select>
@@ -45,12 +42,12 @@ const availableTags = config.directory.tags;
     tagList!.innerHTML = "";
 
     // Loop through the tags and append each one to the tagList
-    for (const tag of tags.get()) {
+    for (const tag of tags.get() as string[]) {
       // Create a wrapper div element
       const tagElement = document.createElement("div");
 
       const tagSpan = document.createElement("span");
-      tagSpan.setAttribute("data-value", tag.key);
+      tagSpan.setAttribute("data-value", tag || "");
 
       // Set its classes and inner HTML content
       tagElement.classList.add(
@@ -96,11 +93,11 @@ const availableTags = config.directory.tags;
 
       tagSpan.addEventListener("click", (event) => {
         const tag_list = tags.get();
-        const clickedElement = event.target;
+        const clickedElement = event.target as HTMLSpanElement;
 
-        const dataValue = clickedElement.getAttribute("data-value");
+        const dataValue = clickedElement?.getAttribute("data-value");
 
-        const index = tag_list.indexOf(dataValue);
+        const index = tag_list.indexOf(dataValue as never);
         if (!index) {
           return;
         }
@@ -116,14 +113,12 @@ const availableTags = config.directory.tags;
     }
   });
 
-  // document.getElementById("tag-remove").addEventListener("click", (event) => {
-  //   console.log("remove");
-  // });
-
-  document.getElementById("tag-select").addEventListener("change", (event) => {
-    console.log("add " + event.target.value);
-    if (!tags.get().includes(event.target.value)) {
-      tags.set([...tags.get(), event.target.value]);
-    }
-  });
+  document
+    ?.getElementById("tag-select")
+    ?.addEventListener("change", (event: Event) => {
+      const target = event.target as HTMLSelectElement;
+      if (!(tags.get() as string[]).includes(target?.value || "")) {
+        tags.set([...(tags.get() as never[]), target?.value as never]);
+      }
+    });
 </script>
