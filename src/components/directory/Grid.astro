@@ -1,8 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import { getListings } from "../../lib/getListings";
 import PureGrid from "./PureGrid.astro";
 
-const allListings = await getCollection("directory");
+const allListings = await getListings();
 ---
 
 <PureGrid id="directory-grid" listings={allListings} />

@@ -8,6 +8,10 @@ name = "Nuxt Starters"
 description = "Find the best nuxt starter kits."
 url = "https://nuxtstarters.com"
 
+[directory.data]
+source = "json"
+links = "outbound"
+
 [directory.search]
 placeholder = "Search among {0} tools"
 showCount = true
@@ -68,13 +72,17 @@ brandText = "BestMeditationApps"
 colorModeSelector = true
 
 [[header.navbar.links]]
+name = "Blog"
+href = "/blog"
+
+[[header.navbar.links]]
 name = "Analytics"
 href = "https://us.posthog.com/shared/vHlGCcSqPjGH4r_QijaXSETtmN9J-g"
 target = "_blank"
 
 [header.actionButton]
 text = "Submit a starter"
-href = "/submit"
+href = "https://tally.so"
 
 [footer]
 description = "Best directory for my niche."

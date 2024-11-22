@@ -29,5 +29,5 @@ const pagesCollection = defineCollection({
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
   directory: directoryCollection,
-  front: pagesCollection,
+  pages: pagesCollection,
 };
