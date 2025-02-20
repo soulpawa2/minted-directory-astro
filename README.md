@@ -74,3 +74,7 @@ Deploy as a static site for best SEO performance:
 ```bash
 pnpm run build
 ```
+
+## Community
+
+[Join the discord](https://discord.gg/5UbrTNzX7y)
