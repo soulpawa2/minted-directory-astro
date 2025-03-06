@@ -1,8 +1,8 @@
 ---
 import Dot from "./Dot.astro";
 import { Icon } from "astro-icon/components";
+import config from "@util/themeConfig";
 
-const config = (await themeConfig);
 
 const getHref = () => {
   const link = config.header.banner?.link;

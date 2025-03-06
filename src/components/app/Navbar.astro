@@ -1,9 +1,9 @@
 ---
 import type { ThemeConfig } from "../../types/ThemeConfig";
+import { Icon } from "astro-icon/components";
 import ColorSelector from "./header/ColorSelector.astro";
 import Logo from "./Logo.astro";
-
-const config: ThemeConfig = await themeConfig;
+import config from "@util/themeConfig";
 ---
 
 <nav
@@ -27,10 +27,11 @@ const config: ThemeConfig = await themeConfig;
                 <a
                   href={nav.href}
                   target={nav.target || "_self"}
-                  class="font-medium block py-2 px-3 text-white bg-primary-700 rounded md:bg-transparent md:text-gray-700 md:p-0 md:dark:text-gray-300"
+                  class="font-medium inline-flex py-2 px-3 text-white bg-primary-700 rounded md:bg-transparent md:text-gray-700 md:p-0 md:dark:text-gray-300"
                   aria-current="page"
                 >
                   {nav.name}
+                  {nav.target === '_blank' ? <Icon class="text-gray-500" name="tabler:arrow-up-right" /> : <></>}
                 </a>
               </li>
             ))
@@ -47,7 +48,7 @@ const config: ThemeConfig = await themeConfig;
       />
       <a
         href={config?.header.actionButton?.href}
-        class="hidden md:block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        class="hidden focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:cursor-not-allowed aria-disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm text-white dark:text-gray-900 bg-primary-500 hover:bg-primary-600 disabled:bg-primary-500 aria-disabled:bg-primary-500 dark:bg-primary-400 dark:hover:bg-primary-500 dark:disabled:bg-primary-400 dark:aria-disabled:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 dark:focus-visible:outline-primary-400 md:inline-flex items-center"
       >
         {config?.header.actionButton?.text}
       </a>

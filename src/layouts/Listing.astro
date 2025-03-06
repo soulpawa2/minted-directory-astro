@@ -3,7 +3,8 @@ import "@fontsource/gabarito";
 import BaseLayout from "./BaseLayout.astro";
 const { slug } = Astro.params;
 const { frontmatter } = Astro.props;
-const siteTitle = (await globalThis.themeConfig).general.title;
+import themeConfig from "@util/themeConfig";
+const siteTitle = themeConfig.general.title;
 const title = frontmatter?.title || siteTitle;
 ---
 

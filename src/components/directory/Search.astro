@@ -5,8 +5,7 @@ import formatString from "../../util/formatString";
 import UiTagGrid from "../ui/tags/Grid.astro";
 import UiTagSelect from "../ui/tags/Select.astro";
 import type { ThemeConfig } from "../../types/ThemeConfig";
-
-const config: ThemeConfig = await themeConfig;
+import config from "@util/themeConfig";
 
 const searchPlaceholder = await getSearchPlaceholder();
 
@@ -18,7 +17,7 @@ async function getSearchPlaceholder() {
     const count = (await getCollection("directory")).length;
     return formatString(
       config.directory.search?.placeholder ?? "Search among {0} listings",
-      count
+      count,
     );
   }
 

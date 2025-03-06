@@ -1,7 +1,8 @@
 ---
 import type Tag from "../../../types/Tag";
+import config from "@util/themeConfig";
 
-const tags = (await themeConfig).directory.tags as Tag[] | undefined;
+const tags = config.directory.tags as Tag[] | undefined;
 // const { selectedTags, toggleTagByName } = useTags();
 ---
 

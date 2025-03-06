@@ -12,6 +12,9 @@ export interface ThemeConfig {
     };
   };
   directory: {
+    data: {
+      source: "markdown" | "json";
+    };
     search: {
       placeholder: string;
       showCount: boolean;
@@ -31,6 +34,7 @@ export interface ThemeConfig {
       card: {
         image: boolean;
         border: "dashed" | "shadow" | "outline"; // Based on options
+        links: "site" | "outbound";
       };
       submit: {
         show: boolean;
