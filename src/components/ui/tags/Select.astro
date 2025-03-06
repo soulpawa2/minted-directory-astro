@@ -1,7 +1,6 @@
 ---
 import type Tag from "../../../types/Tag";
-const config = await themeConfig;
-
+import config from "@util/themeConfig";
 const availableTags = config.directory.tags;
 ---
 
@@ -63,7 +62,7 @@ const availableTags = config.directory.tags;
         "py-1",
         "inline-flex",
         "items-center",
-        "justify-center"
+        "justify-center",
       );
 
       tagSpan.classList.add(
@@ -85,7 +84,7 @@ const availableTags = config.directory.tags;
         "border",
         "dark:bg-gray-700",
         "dark:border-gray-600",
-        "dark:hover:bg-gray-800"
+        "dark:hover:bg-gray-800",
       );
 
       tagSpan.innerHTML = "x";

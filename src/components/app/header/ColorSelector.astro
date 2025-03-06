@@ -1,9 +1,9 @@
 ---
 import { ThemeSwitch } from "astro-color-scheme";
 import { Icon } from "astro-icon/components";
-import useAppConfig from "../../../util/useAppConfig";
+import themeConfig from "@util/themeConfig";
 
-const config = (await useAppConfig()).ui.icons;
+const config = themeConfig.ui.icons;
 ---
 
 <ThemeSwitch strategy="button" defaultTheme="system">

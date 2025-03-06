@@ -1,7 +1,7 @@
 ---
 import type Tag from "../../../types/Tag";
-
-const config = (await globalThis.themeConfig).directory.tags;
+import themeConfig from "@util/themeConfig";
+const config = themeConfig.directory.tags;
 
 const { tag } = Astro.props;
 

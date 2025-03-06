@@ -1,7 +1,6 @@
 ---
 import DirectoryCard from "./Card.astro";
-
-const config = (await globalThis.themeConfig).directory;
+import config from "@util/themeConfig";
 
 const { listings } = Astro.props;
 ---

@@ -1,9 +1,10 @@
 ---
 import "@fontsource/gabarito";
 import AppShell from "../components/app/AppShell.astro";
+import themeConfig from "@util/themeConfig";
 const { slug } = Astro.params;
 const { title } = Astro.props;
-const siteTitle = (await globalThis.themeConfig).general.title;
+const siteTitle = themeConfig.general.title;
 
 const calculatedTitle = title || siteTitle;
 ---

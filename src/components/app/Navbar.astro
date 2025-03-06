@@ -3,8 +3,7 @@ import type { ThemeConfig } from "../../types/ThemeConfig";
 import { Icon } from "astro-icon/components";
 import ColorSelector from "./header/ColorSelector.astro";
 import Logo from "./Logo.astro";
-
-const config: ThemeConfig = await themeConfig;
+import config from "@util/themeConfig";
 ---
 
 <nav

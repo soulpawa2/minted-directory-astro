@@ -2,8 +2,7 @@
 import Image from "astro/components/Image.astro";
 import UiTag from "../ui/tags/Tag.astro";
 import DirectoryFeaturedTag from "./FeaturedTag.astro";
-
-const cardConfig = await themeConfig;
+import cardConfig from "@util/themeConfig";
 
 const { item } = Astro.props;
 
