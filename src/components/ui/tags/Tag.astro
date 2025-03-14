@@ -5,17 +5,13 @@ const config = themeConfig.directory.tags;
 
 const { tag } = Astro.props;
 
-const configTag = config?.find((element: any) => element.name === tag);
+const configTag = config?.find((element: any) => element.key === tag);
 
 const tagClass = configTag?.color ? `${configTag.color}-tag` : "gray-tag";
-
-function getTagName(tagKey: string): Tag {
-  return config.find((e: Tag) => e.key === tagKey);
-}
 ---
 
-<span class={tagClass}>
-  {getTagName(tag)?.name}
+<span class:list={["tag", tagClass]}>
+  {configTag.name}
 </span>
 
 <style scoped lang="postcss">

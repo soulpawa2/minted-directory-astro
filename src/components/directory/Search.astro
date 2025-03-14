@@ -2,9 +2,8 @@
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 import formatString from "../../util/formatString";
-import UiTagGrid from "../ui/tags/Grid.astro";
-import UiTagSelect from "../ui/tags/Select.astro";
-import type { ThemeConfig } from "../../types/ThemeConfig";
+import UiTagGrid from "../ui/tags/Grid.vue";
+import UiTagSelect from "../ui/tags/Select.vue";
 import config from "@util/themeConfig";
 
 const searchPlaceholder = await getSearchPlaceholder();
@@ -57,12 +56,14 @@ async function getSearchPlaceholder() {
   {
     () => {
       if (config.directory.search.tags.display === "select") {
-        return <UiTagSelect v-if="searchConfig?.tags?.display === 'select'" />;
+        return (
+          <UiTagSelect client:load>
+            <Icon name="tabler:x" />
+          </UiTagSelect>
+        );
       }
       if (config.directory.search.tags.display === "show-all") {
-        return (
-          <UiTagGrid v-else-if="searchConfig?.tags?.display === 'show-all'" />
-        );
+        return <UiTagGrid client:load />;
       }
     }
   }
@@ -80,7 +81,6 @@ async function getSearchPlaceholder() {
   });
 
   const keyListener = function (e: KeyboardEvent) {
-    console.log("listening");
     if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
       searchInput?.focus();
