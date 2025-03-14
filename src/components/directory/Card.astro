@@ -6,17 +6,17 @@ import cardConfig from "@util/themeConfig";
 
 const { item } = Astro.props;
 
-
 const myItem = {
   ...item,
   ...item.data
 }
 
-const href = cardConfig.directory?.data?.links === 'outbound' ? myItem.link : myItem.slug;
+const href = cardConfig.directory?.data?.links === 'outbound' ? myItem.link : `/${myItem.slug}`;
 ---
 
 { cardConfig.type !== 'bullet' ?
 <a href={href}
+  data-tags={myItem.tags?.join(',') || ''}
   class="border listing col-span-1 border-gray-200 dark:border-gray-500 hover:border-primary-400 hover:border-solid dark:hover:border-primary-300 rounded relative group transition-all duration-300"
   class={cardConfig?.type === 'shadow' ? 'shadow-sm' : cardConfig?.type === 'dashed' ? 'border-dashed' : ''}>
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }

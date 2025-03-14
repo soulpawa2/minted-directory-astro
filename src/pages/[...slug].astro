@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Prose from "../components/app/Prose.astro";
+import Wide from "@layouts/Wide.astro";
+import Listing from "@layouts/Listing.astro";
 
 // Fetch all listings and pages
 const { slug } = Astro.params;
@@ -34,6 +36,14 @@ export async function getStaticPaths() {
 }
 ---
 
-<BaseLayout>
-  <Content />
-</BaseLayout>
+{
+  !slug ? (
+    <Wide>
+      <Content />
+    </Wide>
+  ) : (
+    <Listing>
+      <Content />
+    </Listing>
+  )
+}
