@@ -11,7 +11,7 @@ const tagClass = configTag?.color ? `${configTag.color}-tag` : "gray-tag";
 ---
 
 <span class:list={["tag", tagClass]}>
-  {configTag.name}
+  {configTag?.name}
 </span>
 
 <style scoped lang="postcss">

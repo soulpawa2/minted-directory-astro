@@ -1,2 +1,3 @@
-import configData from "../config/theme-config.toml";
-export default configData;
+import type { SettingsSchema } from "@validation/settings";
+import configData from "../config/settings.toml";
+export default (configData as SettingsSchema);

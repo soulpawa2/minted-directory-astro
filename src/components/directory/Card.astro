@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro";
+import {Image} from "astro:assets";
 import UiTag from "../ui/tags/Tag.astro";
 import DirectoryFeaturedTag from "./FeaturedTag.astro";
 import cardConfig from "@util/themeConfig";
@@ -12,13 +12,15 @@ const myItem = {
 }
 
 const href = cardConfig.directory?.data?.links === 'outbound' ? myItem.link : `/${myItem.slug}`;
+
+const type = cardConfig.directory.grid.type;
 ---
 
-{ cardConfig.type !== 'bullet' ?
+{ type !== 'bullet' ?
 <a href={href}
   data-tags={myItem.tags?.join(',') || ''}
   class="border listing col-span-1 border-gray-200 dark:border-gray-500 hover:border-primary-400 hover:border-solid dark:hover:border-primary-300 rounded relative group transition-all duration-300"
-  class={cardConfig?.type === 'shadow' ? 'shadow-sm' : cardConfig?.type === 'dashed' ? 'border-dashed' : ''}>
+  class={ type === 'shadow' ? 'shadow-sm' : type === 'dashed' ? 'border-dashed' : ''}>
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { myItem.card_image ? <Image class="w-full h-48 rounded-t object-cover"
     src={myItem.card_image} alt="bot"/> :  <div

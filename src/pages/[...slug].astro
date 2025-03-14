@@ -1,15 +1,14 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Prose from "../components/app/Prose.astro";
 import Wide from "@layouts/Wide.astro";
 import Listing from "@layouts/Listing.astro";
+import { getEntry, render } from "astro:content";
 
 // Fetch all listings and pages
 const { slug } = Astro.params;
-const { data, render } = Astro.props;
+const { entry } = Astro.props;
 
-const { Content } = await render();
+const { Content } = await render(entry);
 
 export async function getStaticPaths() {
   const allListings = await getCollection("directory");
@@ -19,20 +18,18 @@ export async function getStaticPaths() {
   const combinedEntries = allListings.concat(allPages as never);
 
   // Return paths based on slugs
-  const test = combinedEntries.map(({ data, render, slug }) => {
-    let mySlug: string = slug;
+  return combinedEntries.map((entry) => {
+    let mySlug: string = entry.id; // TODO: Check
 
     if (mySlug === "index") {
       mySlug = "/";
     }
 
     return {
-      params: { slug: mySlug }, // Maps to `/` when slug is empty
-      props: { data, render },
+      params: { slug: mySlug },
+      props: { entry },
     };
   });
-
-  return test;
 }
 ---
 

@@ -6,7 +6,7 @@ const { listings } = Astro.props;
 ---
 
 <div
-  class={`not-prose grid grid-cols-1 gap-4 ${config?.list ? "" : "md:grid-cols-2 lg:grid-cols-4"}`}
+  class={`not-prose grid grid-cols-1 gap-4 ${config.directory.grid.list ? "" : "md:grid-cols-2 lg:grid-cols-4"}`}
 >
   {
     Array.isArray(listings) &&

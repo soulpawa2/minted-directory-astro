@@ -15,7 +15,7 @@ const allListings = await getListings();
     const listingsArray = document.querySelectorAll(".listing");
     const currentSearch = search.get().trim().toLowerCase();
     const selectedTags = tags.get();
-    const selectedTagsSet = new Set(selectedTags); // For efficient lookup
+    const selectedTagsSet: Set<string> = new Set(selectedTags); // For efficient lookup
 
     for (const element of listingsArray) {
       // Get content for search filtering
@@ -25,19 +25,21 @@ const allListings = await getListings();
       ).toLowerCase();
 
       // Get tags from data attribute
-      const elementTags = element.dataset.tags?.split(",") || [];
+      if (element instanceof HTMLElement) {
+        const elementTags = element.dataset.tags?.split(",") || [];
 
-      // Determine if the listing matches
-      const matchesSearch = content.includes(currentSearch); // Empty search matches all
-      const matchesTags =
-        selectedTags.length === 0 ||
-        elementTags.some((tag) => selectedTagsSet.has(tag.trim()));
+        // Determine if the listing matches
+        const matchesSearch = content.includes(currentSearch); // Empty search matches all
+        const matchesTags =
+          selectedTags.length === 0 ||
+          elementTags.some((tag: string) => selectedTagsSet.has(tag.trim()));
 
-      // Show or hide the listing
-      if (matchesSearch && matchesTags) {
-        element.classList.remove("hidden");
-      } else {
-        element.classList.add("hidden");
+        // Show or hide the listing
+        if (matchesSearch && matchesTags) {
+          element.classList.remove("hidden");
+        } else {
+          element.classList.add("hidden");
+        }
       }
     }
   }

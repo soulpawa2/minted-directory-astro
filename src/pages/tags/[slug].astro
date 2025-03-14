@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PureGrid from "../../components/directory/PureGrid.vue";
+import PureGrid from "../../components/directory/PureGrid.astro";
 import { getCollection } from "astro:content";
 import formatString from "../../util/formatString";
 import type Tag from "../../types/Tag";
@@ -22,7 +22,7 @@ const { title } = Astro.props;
 const allListings = await getCollection("directory");
 
 const calculatedTitle = config.directory.tags.find(
-  (e) => title && e.key === title,
+  (e: Tag) => title && e.key === title,
 )?.name;
 
 const tagListings: any[] = allListings.filter((listing: any) => {
