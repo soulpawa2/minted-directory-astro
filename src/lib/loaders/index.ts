@@ -57,9 +57,12 @@ export function createDirectoryCollection() {
       throw Error('You need to add a notion token in the .env as NOTION_TOKEN file and your databaseId in the settings.toml to use notion')
     }
 
-    return notionLoader({
-      auth: notionToken,
-      database_id: databaseId,
+    return defineCollection({
+      loader: notionLoader({
+        auth: notionToken,
+        database_id: databaseId
+      }),
+      schema: directorySchema(z.string().url())
     });
   }
 
