@@ -3,7 +3,6 @@ import configData from "@util/themeConfig";
 import { sheetLoad } from "@lib/loaders/sheets";
 import { mockLoader } from "@ascorbic/mock-loader";
 import { glob } from 'astro/loaders';
-import { settingsSchema } from "@validation/settings";
 
 const directorySchema =
   z.object({
@@ -16,29 +15,29 @@ const directorySchema =
     featured: z.boolean().default(false),
   });
 
-let directoryCollection;
+let directory;
 const source = configData.directory.data.source;
 if (source === 'sheets') {
-  directoryCollection = defineCollection({
+  directory = defineCollection({
     loader: sheetLoad(),
     schema: directorySchema
   });
 }
 else if (source === 'mock') {
-  directoryCollection = defineCollection({
+  directory = defineCollection({
     loader: mockLoader({schema: directorySchema, entryCount: 10},),
     schema: directorySchema
   });
 }
 else {
-  directoryCollection = defineCollection({
-    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/directory" }),
+  directory = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/data/directory" }),
     schema: directorySchema
   });
 }
 
-const pagesCollection = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/pages" }),
+const pages = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/data/pages" }),
   schema: z.object({
     title: z.string().optional(),
     tags: z.array(z.string()).optional(),
@@ -46,14 +45,7 @@ const pagesCollection = defineCollection({
   }),
 });
 
-const settingsCollection = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.{toml}', base: "./src/content/config" }),
-  schema: settingsSchema
-});
-
-
 export const collections = {
-  directory: directoryCollection,
-  pages: pagesCollection,
-  settings: settingsCollection
+  directory,
+  pages,
 };

@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Wide from "@layouts/Wide.astro";
 import Listing from "@layouts/Listing.astro";
-import { getEntry, render } from "astro:content";
+import { render } from "astro:content";
 
 // Fetch all listings and pages
 const { slug } = Astro.params;
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 
   // Return paths based on slugs
   return combinedEntries.map((entry) => {
-    let mySlug: string = entry.id; // TODO: Check
+    let mySlug: string = entry.id;
 
     if (mySlug === "index") {
       mySlug = "/";
