@@ -20,6 +20,15 @@ const directorySchema = z.object({
         key: z.string(),
       })
       .optional(),
+    airtable: z.object({
+      base: z.string(),
+      name: z.string(),
+    })
+    .optional(),
+    notion: z.object({
+      databaseId: z.string(),
+    })
+    .optional(),
   }),
   search: z.object({
     placeholder: z.string(),

@@ -5,6 +5,8 @@ import { directorySchema } from "@validation/directory";
 import { z } from "zod";
 import { mockLoader } from "@ascorbic/mock-loader";
 import { glob, file } from "astro/loaders";
+import { airtableLoader } from "@ascorbic/airtable-loader";
+import { notionLoader } from "notion-astro-loader";
 
 export function createDirectoryCollection() {
   const source = configData.directory.data.source;
@@ -15,16 +17,49 @@ export function createDirectoryCollection() {
       schema: directorySchema(z.string().url())
     });
   }
-  else if (source === 'mock') {
+  if (source === 'mock') {
     return defineCollection({
       loader: mockLoader({schema: directorySchema(z.string().url()), entryCount: 10},),
       schema: directorySchema(z.string().url())
     });
   }
-  else if (source === 'json') {
+  if (source === 'json') {
     return defineCollection({
       loader: file('src/data/directory/directory.json'),
       schema: directorySchema(z.string().url())
+    });
+  }
+  if (source === 'csv') {
+    return defineCollection({
+      loader: file('src/data/directory/directory.csv'),
+      schema: directorySchema(z.string().url())
+    });
+  }
+  if (source === 'airtable') {
+    const airtableConfig = configData.directory.data.airtable;
+    if (!airtableConfig?.base || !airtableConfig.name) {
+      throw Error('You need to configure a airtable base id and table name to be able to connect with airtable data.')
+    }
+
+    return defineCollection({
+      loader: airtableLoader({
+        base: airtableConfig.base,
+        table: airtableConfig.name,
+      }),
+      schema: directorySchema(z.string().url())
+    });
+  }
+  if (source === 'notion') {
+    const notionToken = import.meta.env.NOTION_TOKEN;
+    const databaseId = configData.directory.data.notion?.databaseId;
+
+    if (!notionToken || !databaseId) {
+      throw Error('You need to add a notion token in the .env as NOTION_TOKEN file and your databaseId in the settings.toml to use notion')
+    }
+
+    return notionLoader({
+      auth: notionToken,
+      database_id: databaseId,
     });
   }
 

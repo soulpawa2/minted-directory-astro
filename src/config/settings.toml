@@ -15,6 +15,10 @@ links = "normal"
 # [directory.data.sheets]
 # key = "1BKVVFysQT8ZuPY8hUp--jwTrN-U20TrtML0idECIWmc"
 
+# [directory.data.airtable]
+# base = "base id"
+# table = "Table Name"
+
 [directory.search]
 placeholder = "Search among {0} agent frameworks"
 showCount = true
