@@ -11,7 +11,7 @@ const myItem = {
   ...item.data
 }
 
-const href = cardConfig.directory?.data?.links === 'outbound' ? myItem.link : `/${myItem.slug}`;
+const href = cardConfig.directory?.data?.links === 'outbound' ? myItem.link : `/${myItem.id}`;
 
 const type = cardConfig.directory.grid.type;
 ---
