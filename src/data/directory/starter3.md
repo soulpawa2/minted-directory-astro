@@ -1,5 +1,5 @@
 ---
-title: Cafe Condesa
+title: Example Listing
 description: This is an example listing to get you started.
 tags:
   - visual

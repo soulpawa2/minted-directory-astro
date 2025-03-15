@@ -1,0 +1,13 @@
+---
+import Wide from "@layouts/Wide.astro";
+import { render } from "astro:content";
+import { getEntry } from "astro:content";
+
+const entry = await getEntry("pages", "blog");
+
+const { Content } = await render(entry);
+---
+
+<Wide>
+  <Content />
+</Wide>

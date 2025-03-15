@@ -31,15 +31,17 @@ export async function getStaticPaths() {
     };
   });
 }
+
+const wideView = !slug;
 ---
 
 {
-  !slug ? (
+  wideView ? (
     <Wide>
       <Content />
     </Wide>
   ) : (
-    <Listing>
+    <Listing frontmatter={entry.data}>
       <Content />
     </Listing>
   )
