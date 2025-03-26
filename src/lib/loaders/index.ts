@@ -20,19 +20,19 @@ export function createDirectoryCollection() {
   if (source === 'mock') {
     return defineCollection({
       loader: mockLoader({schema: directorySchema(z.string().url()), entryCount: 10},),
-      schema: directorySchema(z.string().url())
+      schema: directorySchema(z.undefined())
     });
   }
   if (source === 'json') {
     return defineCollection({
       loader: file('src/data/directory/directory.json'),
-      schema: directorySchema(z.string().url())
+      schema: ({ image }) => directorySchema(image())
     });
   }
   if (source === 'csv') {
     return defineCollection({
       loader: file('src/data/directory/directory.csv'),
-      schema: directorySchema(z.string().url())
+      schema: ({ image }) => directorySchema(image())
     });
   }
   if (source === 'airtable') {
