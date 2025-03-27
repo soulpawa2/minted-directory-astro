@@ -15,7 +15,7 @@ alwaysApply: true
   - The root of the json should be an array. where all of the listings are added to.
   - Remember that `id` is required for each listing when adding them with json.
 - If the user needs the directory listings to have their own page with content:
-  - you need to set in @settings.toml `directory.data.source` to `default`
+  - you need to set in [settings.toml](mdc:src/config/settings.toml) `directory.data.source` to `default`
   - you need to set `directory.data.links` to outbound to directly redirect the user to the website when each listing is clicked.
   - then add markdown files in `src/data/directory/`.
   - use frontmatter to add the properties that the listings need.
