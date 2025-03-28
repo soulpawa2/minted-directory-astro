@@ -40,8 +40,7 @@ const directorySchema = z.object({
     }),
   }),
   grid: z.object({
-    list: z.boolean(),
-    type: z.string(),
+    type: z.enum(["icon-list", "rectangle-card-grid", "small-card-grid"]),
     emptyState: z.object({
       text: z.string(),
       type: z.enum(["button", "simple", "link"]),
@@ -49,7 +48,6 @@ const directorySchema = z.object({
     }),
     card: z.object({
       image: z.boolean(),
-      border: z.enum(["dashed", "shadow", "outline"]),
     }),
     submit: z.object({
       show: z.boolean(),

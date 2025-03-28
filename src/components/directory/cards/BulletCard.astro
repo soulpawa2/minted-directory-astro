@@ -1,0 +1,30 @@
+---
+import Icon from "node_modules/astro-icon/components/Icon.astro";
+
+const { myItem, href } = Astro.props;
+---
+
+<a href={href} class="listing">
+  <div class="flex flex-row gap-2.5 items-center">
+    {
+      myItem.image ? (
+        <img class="h-5 w-5 flex-shrink-0" src={myItem.image} />
+      ) : (
+        <Icon
+          class="h-5 w-5 flex-shrink-0 text-gray-200 dark:text-gray-900"
+          name="tabler:circle-filled"
+        />
+      )
+    }
+    <span class="font-semibold dark:text-gray-50 whitespace-nowrap">
+      {myItem.title}
+    </span>
+    <Icon
+      class="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-gray-300"
+      name="tabler:minus"
+    />
+    <span class="text-gray-500 dark:text-gray-300 truncate text-sm shrink">
+      {myItem.description}
+    </span>
+  </div>
+</a>

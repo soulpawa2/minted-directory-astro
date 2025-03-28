@@ -1,0 +1,34 @@
+---
+import getThemeConfig from "@util/themeConfig";
+const config = await getThemeConfig();
+import BulletCard from "./BulletCard.astro";
+import RectangleCard from "./RectangleCard.astro";
+import SmallHorizontalCard from "./SmallHorizontalCard.astro";
+
+const { item } = Astro.props;
+
+const myItem = {
+  ...item,
+  ...item.data,
+};
+
+const href = config.directory?.data?.outboundLinks
+  ? myItem.link
+  : `/${myItem.id}`;
+
+const type = config.directory.grid.type;
+---
+
+<div>
+  {type == "icon-list" && <BulletCard myItem={myItem} href={href} />}
+  {
+    type == "rectangle-card-grid" && (
+      <RectangleCard myItem={myItem} href={href} />
+    )
+  }
+  {
+    type == "small-card-grid" && (
+      <SmallHorizontalCard myItem={myItem} href={href} />
+    )
+  }
+</div>
