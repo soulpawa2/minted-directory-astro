@@ -30,7 +30,7 @@ intersection = false
 
 [directory.grid]
 list = false
-type = ""
+type = "small-card-grid"
 
 [directory.grid.emptyState]
 text = "Seems that this entry is missing from the archives."
@@ -58,13 +58,13 @@ labelForCard = "Featured ✨"
 title = "{0} Frameworks"
 
 [[directory.tags]]
-key = "code"
-name = "Code Based"
+key = "breathing"
+name = "Breathing"
 color = "blue"
 
 [[directory.tags]]
-key = "visual"
-name = "Visual Based"
+key = "sleep"
+name = "Sleep"
 color = "green"
 
 [header.banner]

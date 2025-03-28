@@ -1,6 +1,5 @@
 ---
-import getThemeConfig from "@util/themeConfig";
-const config = await getThemeConfig();
+import config from "@util/themeConfig";
 import BulletCard from "./BulletCard.astro";
 import RectangleCard from "./RectangleCard.astro";
 import SmallHorizontalCard from "./SmallHorizontalCard.astro";
@@ -19,7 +18,7 @@ const href = config.directory?.data?.outboundLinks
 const type = config.directory.grid.type;
 ---
 
-<div>
+<div class="listing" data-tags={myItem.tags?.join(",") || ""}>
   {type == "icon-list" && <BulletCard myItem={myItem} href={href} />}
   {
     type == "rectangle-card-grid" && (

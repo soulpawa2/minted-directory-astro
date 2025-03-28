@@ -3,6 +3,8 @@
     "id": "calm",
     "title": "Calm",
     "image": "../images/cloudflare.png",
+    "featured": true,
+    "tags": ["breathing", "sleep", "meditation"],
     "description": "Offers guided meditations, sleep stories, and calming music to help users relax and improve sleep.",
     "link": "https://minteddirectory.com"
   },

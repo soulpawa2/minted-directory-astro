@@ -7,8 +7,7 @@ const type = 'rectangle';
 ---
 
 <a href={href}
-  data-tags={myItem.tags?.join(',') || ''}
-  class="border listing col-span-1 border-gray-200 dark:border-gray-500 hover:border-primary-400 hover:border-solid dark:hover:border-primary-300 rounded relative group transition-all duration-300">
+  class="border col-span-1 border-gray-200 dark:border-gray-500 hover:border-primary-400 hover:border-solid dark:hover:border-primary-300 rounded relative group transition-all duration-300">
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { myItem.image ? <Image height={500} width={800} class="w-full h-48 rounded-t object-cover"
     src={myItem.image} alt={myItem.title} /> :  <div
