@@ -1,6 +1,6 @@
 ---
 import Icon from "node_modules/astro-icon/components/Icon.astro";
-
+import { Image } from "astro:assets";
 const { myItem, href } = Astro.props;
 ---
 
@@ -8,10 +8,15 @@ const { myItem, href } = Astro.props;
   <div class="flex flex-row gap-2.5 items-center">
     {
       myItem.image ? (
-        <img class="h-5 w-5 flex-shrink-0" src={myItem.image} />
+        <Image
+          class="h-5 w-5 flex-shrink-0"
+          src={myItem.image}
+          alt={myItem.title}
+          loading="lazy"
+        />
       ) : (
         <Icon
-          class="h-5 w-5 flex-shrink-0 text-gray-200 dark:text-gray-900"
+          class="h-5 w-5 flex-shrink-0 text-gray-200 dark:text-gray-700"
           name="tabler:circle-filled"
         />
       )

@@ -13,8 +13,8 @@ const type = "small-horizontal";
   <div class="flex-none mr-3 rounded-none w-16 h-16 overflow-hidden">
     {
       myItem.image ? (
-        <img
-          class="w-16 h-16"
+        <Image
+          class="w-16 h-16 object-cover"
           src={myItem.image}
           alt={myItem.title}
           loading="lazy"

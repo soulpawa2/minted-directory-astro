@@ -11,14 +11,18 @@ const myItem = {
   ...item.data,
 };
 
-const href = config.directory?.data?.outboundLinks
+const href = config.directoryData?.source?.linksOutbound
   ? myItem.link
   : `/${myItem.id}`;
 
-const type = config.directory.grid.type;
+const type = config.directoryUI.grid.type;
 ---
 
-<div class="listing" data-tags={myItem.tags?.join(",") || ""}>
+<div
+  class="listing"
+  transition:name={`${myItem.id}-card`}
+  data-tags={myItem.tags?.join(",") || ""}
+>
   {type == "icon-list" && <BulletCard myItem={myItem} href={href} />}
   {
     type == "rectangle-card-grid" && (

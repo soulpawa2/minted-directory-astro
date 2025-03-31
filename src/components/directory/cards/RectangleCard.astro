@@ -3,11 +3,10 @@ import UiTag from "@components/ui/tags/Tag.astro";
 import DirectoryFeaturedTag from "../FeaturedTag.astro";
 import { Image } from "astro:assets";
 const { myItem, href } = Astro.props;
-const type = 'rectangle';
 ---
 
 <a href={href}
-  class="border col-span-1 border-gray-200 dark:border-gray-500 hover:border-primary-400 hover:border-solid dark:hover:border-primary-300 rounded relative group transition-all duration-300">
+  class="block h-full border border-gray-200 dark:border-gray-500 hover:border-gray-400 hover:border-solid dark:hover:border-gray-300 rounded relative group transition-all duration-300">
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { myItem.image ? <Image height={500} width={800} class="w-full h-48 rounded-t object-cover"
     src={myItem.image} alt={myItem.title} /> :  <div
