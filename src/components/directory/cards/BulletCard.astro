@@ -21,14 +21,16 @@ const { myItem, href } = Astro.props;
         />
       )
     }
-    <span class="font-semibold dark:text-gray-50 whitespace-nowrap">
+    <span class="font-semibold dark:text-gray-50 whitespace-nowrap card-title">
       {myItem.title}
     </span>
     <Icon
       class="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-gray-300"
       name="tabler:minus"
     />
-    <span class="text-gray-500 dark:text-gray-300 truncate text-sm shrink">
+    <span
+      class="text-gray-500 dark:text-gray-300 truncate text-sm shrink card-description"
+    >
       {myItem.description}
     </span>
   </div>
