@@ -3,9 +3,8 @@ import AppLogo from "./Logo.astro";
 import { Icon } from "astro-icon/components";
 import config from "@util/themeConfig";
 
-const socials = config.footer.socials
-  ? Object.values(config.footer.socials).filter((i) => i?.icon && i?.link)
-  : [];
+const socials = Object.values(config.footer.socials);
+const socialNames = Object.keys(config.footer.socials);
 
 const navigation = [
   {
@@ -50,10 +49,18 @@ const navigation = [
         <AppLogo />
         <div class="flex space-x-6">
           {
-            socials.map((item, key) => (
+            socials.map((item, index) => (
               <a href={item?.link} class="text-gray-400 hover:text-gray-500">
                 <span class="sr-only">{item}</span>
-                <Icon name={item.icon!} class="h-6 w-6" aria-hidden="true" />
+                <Icon
+                  name={
+                    config.ui.icons[
+                      socialNames[index] as keyof typeof config.ui.icons
+                    ]
+                  }
+                  class="h-6 w-6"
+                  aria-hidden="true"
+                />
               </a>
             ))
           }

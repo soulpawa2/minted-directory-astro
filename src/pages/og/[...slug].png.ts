@@ -1,4 +1,4 @@
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 import fs from 'fs';
 import path from 'path';
 import { ImageResponse } from '@vercel/og';
@@ -17,12 +17,16 @@ export async function GET({ params }: Props) {
   const { slug } = params;
   const entry = await getEntry('directory', slug);
 
+  if (!entry) {
+    throw new Error("Unable to find " + slug);
+  }
+
   // using custom font files
   const GabartitoSansBold = fs.readFileSync(path.resolve(boldFontPath));
   const GabaritoSansRegular = fs.readFileSync(
     path.resolve(regularFontPath),
   );
- 
+
   // entry cover with Image is pretty tricky for dev and build phase
   const postCover = fs.readFileSync(
     process.env.NODE_ENV === 'development'
@@ -124,8 +128,7 @@ export async function GET({ params }: Props) {
     ],
   });
 }
- 
-// to generate an image for each blog posts in a collection
+
 export async function getStaticPaths() {
   return await getRootPages(false);
 }

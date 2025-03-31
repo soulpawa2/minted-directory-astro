@@ -20,7 +20,7 @@ type = "small-card-grid"
 
 [directoryUI.grid.emptyState]
 text = "Seems that this entry is missing from the archives."
-type = "button"          # options: button, simple, link
+type = "button"                                              # options: button, simple, link
 icon = "tabler:exclamation-mark"
 
 [directoryUI.grid.card]
@@ -42,8 +42,8 @@ labelForCard = "Featured ✨"
 [ui.icons]
 dark = "tabler:moon"
 light = "tabler:sun"
-youtube = ""
-x = ""
-instagram = ""
-facebook = ""
-github = ""
+youtube = "tabler:brand-youtube"
+x = "tabler:brand-twitter"
+instagram = "tabler:brand-instagram"
+facebook = "tabler:brand-facebook"
+github = "tabler:brand-github"
