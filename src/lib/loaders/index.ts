@@ -9,7 +9,7 @@ import { airtableLoader } from "@ascorbic/airtable-loader";
 import { notionLoader } from "notion-astro-loader";
 
 export function createDirectoryCollection() {
-  const source = configData.directory.data.source;
+  const source = configData.directoryData.source.name;
 
   if (source === 'sheets') {
     return defineCollection({
@@ -36,7 +36,7 @@ export function createDirectoryCollection() {
     });
   }
   if (source === 'airtable') {
-    const airtableConfig = configData.directory.data.airtable;
+    const airtableConfig = configData.directoryData.source.airtable;
     if (!airtableConfig?.base || !airtableConfig.name) {
       throw Error('You need to configure a airtable base id and table name to be able to connect with airtable data.')
     }
@@ -51,7 +51,7 @@ export function createDirectoryCollection() {
   }
   if (source === 'notion') {
     const notionToken = import.meta.env.NOTION_TOKEN;
-    const databaseId = configData.directory.data.notion?.databaseId;
+    const databaseId = configData.directoryData.source.notion?.databaseId;
 
     if (!notionToken || !databaseId) {
       throw Error('You need to add a notion token in the .env as NOTION_TOKEN file and your databaseId in the settings.toml to use notion')
