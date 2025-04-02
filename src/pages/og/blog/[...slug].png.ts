@@ -1,10 +1,10 @@
-import { getCollection, getEntry } from 'astro:content';
+import { getEntry, type CollectionEntry } from 'astro:content';
 import fs from 'fs';
 import path from 'path';
 import { ImageResponse } from '@vercel/og';
-import { getRootPages } from '@lib/getRootPages';
+import { getBlogPages, getRootPages } from '@lib/getRootPages';
 import config from '@util/themeConfig';
-import { type AllContent } from '../../types/content';
+import type { AllContent } from '../../../types/content';
 
 const boldFontPath = 'node_modules/@fontsource/gabarito/files/gabarito-latin-700-normal.woff' as const;
 const regularFontPath = 'node_modules/@fontsource/gabarito/files/gabarito-latin-400-normal.woff' as const;
@@ -13,14 +13,14 @@ interface Props {
   params: { slug: string };
 }
 
-function getPostCoverPath(entry: AllContent) {
+function getPostCoverPath(entry: CollectionEntry<'blog'>) {
   if (!entry.data.image) {
-    return '/default-listing-image.png';
+    return '/default-blog-image.png';
   }
   return entry.data.image.src;
 }
 
-function getPostCoverImage(entry: AllContent) {
+function getPostCoverImage(entry: CollectionEntry<'blog'>) {
   const imagePath = getPostCoverPath(entry);
   if (process.env.NODE_ENV === 'development') {
     return path.resolve(imagePath.replace(/\?.*/, '').replace('/@fs', ''));
@@ -30,16 +30,8 @@ function getPostCoverImage(entry: AllContent) {
  
 export async function GET({ params }: Props) {
   const title = config.general.title;
-  console.log(params);
   const { slug } = params;
-
-  let entry: AllContent | undefined;
-  const allListings = (await getCollection("directory")).map(e => e.id);
-  if (allListings.includes(slug)){
-    entry = await getEntry('directory', slug);
-  } else {
-    entry = await getEntry('pages', slug);
-  }
+  const entry = await getEntry('blog', slug);
 
   if (!entry) {
     throw new Error("Unable to find " + slug);
@@ -106,7 +98,7 @@ export async function GET({ params }: Props) {
                     fontSize: '18px',
                     fontFamily: 'Gabarito Regular',
                   },
-                  children: entry.collection === 'directory' ? entry.data.description : entry.data.title,
+                  children: entry.data.title,
                 },
               },
             ],
@@ -158,5 +150,5 @@ export async function GET({ params }: Props) {
 }
 
 export async function getStaticPaths() {
-  return await getRootPages(false);
+  return await getBlogPages();
 }
