@@ -2,14 +2,25 @@
   {
     "id": "calm",
     "title": "Calm",
-    "image": "../images/cloudflare.png",
+    "image": "../images/calm.png",
+    "featured": true,
+    "tags": [
+      "breathing",
+      "sleep",
+      "meditation"
+    ],
     "description": "Offers guided meditations, sleep stories, and calming music to help users relax and improve sleep.",
     "link": "https://minteddirectory.com"
   },
   {
     "id": "headspace",
-    "title": "Headspace",
-    "image": "",
+    "title": "Squirtle",
+    "image": "../images/007.png",
+    "tags": [
+      "breathing",
+      "sleep",
+      "meditation"
+    ],
     "description": "Provides a variety of guided meditations, sleep content, and mindfulness exercises for daily use.",
     "link": "https://minteddirectory.com"
   },
@@ -37,6 +48,10 @@
   {
     "id": "meditopia",
     "title": "Meditopia",
+    "tags": [
+      "breathing",
+      "meditation"
+    ],
     "image": "",
     "description": "Focuses on sleep and stress reduction with guided meditations in multiple languages.",
     "link": "https://minteddirectory.com"
@@ -44,6 +59,10 @@
   {
     "id": "happier",
     "title": "10% Happier",
+    "tags": [
+      "yoga",
+      "meditation"
+    ],
     "image": "",
     "description": "Teaches meditation through videos, guided sessions, and a personal coaching feature.",
     "link": "https://minteddirectory.com"

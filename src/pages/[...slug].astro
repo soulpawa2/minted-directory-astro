@@ -3,6 +3,9 @@ import { getCollection } from "astro:content";
 import Wide from "@layouts/Wide.astro";
 import Listing from "@layouts/Listing.astro";
 import { render } from "astro:content";
+import Sidebar from "@layouts/Sidebar.astro";
+import Landing from "@layouts/Landing.astro";
+import { getRootPages } from "@lib/getRootPages";
 
 // Fetch all listings and pages
 const { slug } = Astro.params;
@@ -11,37 +14,19 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 export async function getStaticPaths() {
-  const allListings = await getCollection("directory");
-  const allPages = await getCollection("pages");
-
-  // Combine listings and pages
-  const combinedEntries = allListings.concat(allPages as never);
-
-  // Return paths based on slugs
-  return combinedEntries.map((entry) => {
-    let mySlug: string = entry.id;
-
-    if (mySlug === "index") {
-      mySlug = "/";
-    }
-
-    return {
-      params: { slug: mySlug },
-      props: { entry },
-    };
-  });
+  return await getRootPages();
 }
 
-const wideView = !slug || slug === "blog";
+const landingView = !slug || slug === "blog";
 ---
 
 {
-  wideView ? (
-    <Wide>
+  landingView ? (
+    <Landing>
       <Content />
-    </Wide>
+    </Landing>
   ) : (
-    <Listing frontmatter={entry.data}>
+    <Listing frontmatter={entry.data} slug={slug}>
       <Content />
     </Listing>
   )

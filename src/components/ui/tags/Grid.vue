@@ -4,7 +4,7 @@ import { tags } from '@/store.js';
 import config from "@util/themeConfig";
 import type Tag from "@/types/Tag";
 
-const availableTags = config.directory.tags as Tag[] | undefined;
+const availableTags = config.directoryData.tags as Tag[] | undefined;
 
 const selectedTags = useStore(tags);
 

@@ -1,5 +1,9 @@
+# available directory themes:
+# spearmint, peppermint, hemingway, brookmint
+theme = 'brookmint'
+
 [general]
-title = "Cafe Directory"
+title = "Meditation Apps"
 logo = ""
 iconLogo = "tabler:coffee"
 
@@ -8,64 +12,50 @@ name = "Cafe Directory"
 description = "Find the best nuxt starter kits."
 url = "https://nuxtstarters.com"
 
-[directory.data]
-source = "json"  # default, mock, sheets, json
+[directoryData.source]
+name = "json"    # default, mock, sheets, json
 links = "normal"
 
-# [directory.data.sheets]
-# key = "1BKVVFysQT8ZuPY8hUp--jwTrN-U20TrtML0idECIWmc"
+[directoryData.tagPages]
+title = "{0} Apps"
 
-# [directory.data.airtable]
-# base = "base id"
-# table = "Table Name"
+[directoryData.search]
+placeholder = "Search among {0} listings of this directory :)"
 
-[directory.search]
-placeholder = "Search among {0} agent frameworks"
-showCount = true
-icon = "tabler:bow"
-
-[directory.search.tags]
-display = "show-all" # options: none,select,show-all
-intersection = false
-
-[directory.grid]
-list = false
-type = ""
-
-[directory.grid.emptyState]
-text = "Seems that this entry is missing from the archives."
-type = "button"                                              # options: button, simple, link
-icon = "tabler:exclamation-mark"
-
-[directory.grid.card]
-image = true
-border = "shadow" # options: dashed, shadow, outline
-
-[directory.grid.submit]
-show = true
-first = false
-title = "Submit a template"
-description = "Submit a template to show off a good project to other people."
-hideable = true
-
-[directory.featured]
-showOnAllPages = true
-showOnSide = true
-icon = "tabler:star"
-labelForCard = "Featured ✨"
-
-[directory.tagPages]
-title = "{0} Frameworks"
-
-[[directory.tags]]
-key = "code"
-name = "Code Based"
+[[directoryData.tags]]
+key = "breathing"
+name = "Breathing"
 color = "blue"
+emoji = "👃"
+description = "Breathing techniques are a popular feature in meditation apps."
 
-[[directory.tags]]
-key = "visual"
-name = "Visual Based"
+[[directoryData.tags]]
+key = "sleep"
+name = "Sleep"
 color = "green"
+emoji = "💤"
+description = "Some apps include music that slowly goes away to help you sleep better and rest."
+
+[[directoryData.tags]]
+key = "meditation"
+name = "Meditation"
+color = "purple"
+emoji = "🧘‍♂️"
+description = "A meditation for your life. It's a great way to relax and clear your mind. It's also a great way to improve your sleep."
+
+[[directoryData.tags]]
+key = "yoga"
+name = "Yoga"
+color = "purple"
+emoji = "🧘‍♂️"
+description = "A yoga for your life."
+
+[[directoryData.tags]]
+key = "timer"
+name = "Timer"
+color = "green"
+emoji = "⏰"
+description = "Timers can be used to track how much you meditate."
 
 [header.banner]
 show = true
@@ -86,32 +76,14 @@ href = "https://us.posthog.com/shared/vHlGCcSqPjGH4r_QijaXSETtmN9J-g"
 target = "_blank"
 
 [header.actionButton]
-text = "Submit a starter"
+text = "Submit an app"
 href = "https://tally.so"
 
 [footer]
 description = "Best directory for my niche."
 
-[footer.socials.github]
-link = ""
-icon = "tabler:brand-github"
-
-[footer.socials.facebook]
-link = ""
-icon = "tabler:brand-facebook"
-
-[footer.socials.instagram]
-link = ""
-icon = "tabler:brand-instagram"
-
 [footer.socials.x]
 link = "https://x.com/mark_bruderer"
-icon = "tabler:brand-twitter"
 
 [footer.socials.youtube]
 link = "https://www.youtube.com/@mark_hacks"
-icon = "tabler:brand-youtube"
-
-[ui.icons]
-dark = "tabler:moon"
-light = "tabler:sun"
