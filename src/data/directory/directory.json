@@ -14,7 +14,7 @@
   },
   {
     "id": "headspace",
-    "title": "Squirtle",
+    "title": "Headspace",
     "image": "../images/007.png",
     "tags": [
       "breathing",
@@ -22,7 +22,7 @@
       "meditation"
     ],
     "description": "Provides a variety of guided meditations, sleep content, and mindfulness exercises for daily use.",
-    "link": "https://minteddirectory.com"
+    "link": "https://www.headspace.com"
   },
   {
     "id": "insight-timer",
@@ -157,5 +157,16 @@
     "image": "",
     "description": "Offers a variety of meditation techniques, including breathwork, sound baths, and guided journeys.",
     "link": "https://minteddirectory.com"
+  },
+  {
+    "id": "balance",
+    "title": "Balance",
+    "image": "",
+    "tags": [
+      "meditation",
+      "timer"
+    ],
+    "description": "A personalized meditation app that adapts to your needs and preferences with a year-long guided program.",
+    "link": "https://www.balanceapp.com"
   }
 ]

@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>Minted Directory Astro</h1>
-  <p>Markdown driven directory template. Built with Astro and Tailwindcss. Optimized for SEO. Beautiful Customizable Style</p>
+  <h1>Meditation Apps Directory</h1>
+  <p>A comprehensive directory of meditation and mindfulness apps. Built with Astro and Tailwindcss. Optimized for SEO. Beautiful Customizable Style</p>
 </div>
 
 <br/>

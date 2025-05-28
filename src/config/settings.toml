@@ -8,9 +8,9 @@ logo = ""
 iconLogo = "tabler:coffee"
 
 [general.seo]
-name = "Cafe Directory"
-description = "Find the best nuxt starter kits."
-url = "https://nuxtstarters.com"
+name = "Meditation Apps Directory"
+description = "Find the best meditation apps for mindfulness, sleep, and relaxation."
+url = "https://meditationapps.example.com"
 
 [directoryData.source]
 name = "json"    # default, mock, sheets, json
@@ -20,7 +20,7 @@ links = "normal"
 title = "{0} Apps"
 
 [directoryData.search]
-placeholder = "Search among {0} listings of this directory :)"
+placeholder = "Search among {0} meditation apps :)"
 
 [[directoryData.tags]]
 key = "breathing"
@@ -59,9 +59,9 @@ description = "Timers can be used to track how much you meditate."
 
 [header.banner]
 show = true
-text = "Follow mark_bruderer on twitter."
-link = "https://x.com/intent/follow?screen_name=mark_bruderer"
-brandText = "AI Agent Libraries"
+text = "Updated May 2025: New apps added!"
+link = "#"
+brandText = "Meditation Apps Directory"
 
 [header.navbar]
 colorModeSelector = true
@@ -77,10 +77,10 @@ target = "_blank"
 
 [header.actionButton]
 text = "Submit an app"
-href = "https://tally.so"
+href = "https://forms.example.com/submit-app"
 
 [footer]
-description = "Best directory for my niche."
+description = "The most comprehensive directory of meditation and mindfulness apps."
 
 [footer.socials.x]
 link = "https://x.com/mark_bruderer"
